@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from enum import Enum
 from unittest.mock import patch
-import unittest
+
 
 class Player(ABC):
     def __init__(self, name, symbol):
@@ -43,7 +43,7 @@ class GameSymbol(Enum):
     EMPTY = " "
 
 class Board:
-    _instance = None  # singleton
+    _instance = None  
 
     def __new__(cls):
         if cls._instance is None:
@@ -71,15 +71,15 @@ class Board:
         return GameSymbol.EMPTY.value not in self._cells
 
     def check_winner(self):
-        # horizontal
+      
         for i in range(0, 9, 3):
             if self._cells[i] == self._cells[i+1] == self._cells[i+2] != GameSymbol.EMPTY.value:
                 return self._cells[i]
-        # vertical
+       
         for i in range(3):
             if self._cells[i] == self._cells[i+3] == self._cells[i+6] != GameSymbol.EMPTY.value:
                 return self._cells[i]
-        # diagonal
+       
         if self._cells[0] == self._cells[4] == self._cells[8] != GameSymbol.EMPTY.value:
             return self._cells[0]
         if self._cells[2] == self._cells[4] == self._cells[6] != GameSymbol.EMPTY.value:
@@ -101,7 +101,6 @@ class TicTacToeGame:
     def play(self):
         self.board.reset()
 
-        # Parodyti seną rezultatą (tik vieną paskutinį laimėtoją) iš praeito žaidimo
         try:
             with open("praeitas.txt", "r") as f:
                 paskutinis = f.read().strip()
@@ -129,11 +128,11 @@ class TicTacToeGame:
             print("It's a tie!")
             result_text = "Lygiosios!"
 
-        # Įrašyti tik paskutinį nugalėtoją į failą "praeitas.txt" (perrašysim)
+    
         with open("praeitas.txt", "w") as f:
             f.write(result_text + "\n")
 
-        # Įrašyti dabartinio žaidimo nugalėtoją į failą "dabar.txt"
+      
         with open("dabar.txt", "w") as f:
             f.write(result_text + "\n")
 
