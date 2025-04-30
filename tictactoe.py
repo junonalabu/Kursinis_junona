@@ -141,7 +141,7 @@ class TicTacToeGame:
             self.play()
 
 def main():
-    print("Welcome to Tic-Tac-Toe!")
+    print("Welcome to Tic-Tac-To!")
     choice = input("Play against computer? (y/n): ").lower()
     player1 = HumanPlayer(input("Enter Player 1 name: "), GameSymbol.X.value)
 
