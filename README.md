@@ -131,14 +131,17 @@ with open("praeitas.txt", "r") as f:
 
 with open("praeitas.txt", "w") as f:
     f.write(result_text + "\n")
+
+with open("dabar.txt", "w") as f:
+    f.write(result_text + "\n")
 ```
 ## Paaiškinimas:
-Programa nuskaito paskutinį žaidimo rezultatą iš `praeitas.txt`.
-Naujas rezultatas įrašomas į `praeitas.txt` ir `dabar.txt`.
+Programa nuskaito paskutinį žaidimo rezultatą iš `praeitas.txt` ir parodo jį vartotojui prieš naują žaidimą.
+Pasibaigus žaidimui, naujas rezultatas įrašomas tiek į `praeitas.txt`, tiek į `dabar.txt`.
+Tokiu būdu `praeitas.txt` visada rodo naujausią rezultatą prieš kitą žaidimą, o `dabar.txt` saugo dabartinio žaidimo rezultatą.
 ## Nauda:
 Leidžia rodyti naudotojui ankstesnio žaidimo rezultatą.
-Paprasta įgyvendinti žaidimo atmintį ar istoriją.
-
+Sudaro galimybę sukurti žaidimo rezultatų istoriją arba statistiką ateityje.
 # Rezultatai
 
 Sukurtas pilnai veikiantis OOP pagrįstas kryžiukų-nuliukų žaidimas.
@@ -149,14 +152,19 @@ Duomenys saugomi ir nuskaitomi iš failų.
 
 # Išvados 
 
-Objektinio programavimo taikymas užtikrina aiškų, modulį ir lengvai plečiamą kodą.
+- Objektinis programavimas padėjo sukurti aišką, struktūruotą, lengvai plėtojamą ir prižiūrimą programinę sistemą.
 
-Žaidimą galima plėsti: GUI sąsaja, rezultatai internete, žaidimas su dirbtiniu intelektu.
+- Naudojant abstrakciją ir paveldėjimą, supaprastinama skirtingų žaidėjų logika.
 
-Toks programos dizainas padeda kurti kokybišką, lengvai palaikomą programinę įrangą.
+- Polimorfizmas leido rašyti bendresnį kodą, kuris veikia nepriklausomai nuo objekto tipo.
 
+- Inkapsuliacija apsaugojo duomenis nuo netinkamo naudojimo.
 
+- Singleton užtikrino, kad visi komponentai naudotų vieną bendrą lentą.
 
+- Kompozicija padėjo suvaldyti objekto gyvavimo ciklą bei priklausomybes.
+
+- Ateityje žaidimą galima išplėsti.
 
 
 
