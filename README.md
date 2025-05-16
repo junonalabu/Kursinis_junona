@@ -50,9 +50,9 @@ class Player:
         return self._name
 ```
 ## Kodėl būtent taip?
-Kintamieji pažymėti _ yra laikomi „privatūs“. Prie jų prieinama per getter metodus (`@property`). Tai apsaugo objekto vidinę būseną nuo netyčinių pakeitimų iš išorės.
-`name` ir `symbol` saugomi kaip privatūs atributai. 
-Juos galima pasiekti tik per `@property` metodus, taigi jie yra apsaugoti nuo atsitiktinio pakeitimo.  
+Kintamieji pažymėti _ yra laikomi „protected“. Protected (_) prieiga padeda kode apsaugoti vidinius kintamuosius, tokius kaip žaidėjo vardas ar simbolis, nuo tiesioginio keitimo iš išorės, taip užtikrinant, kad jie būtų valdomi tik per saugius metodus arba paveldėtas klases.
+`name` ir `symbol` saugomi kaip apsaugoti atributai. 
+ Jie yra apsaugoti nuo atsitiktinio pakeitimo.  
 
 ## 2. Abstrakcija (Abstraction)
 Abstrakcija yra į objekto orientuoto programavimo sąvoka, kuri parodo tik esminius atributus ir slepia nereikalingą informaciją. Ji leidžia išryškinti tik tai, kas yra svarbu naudotojui ir dirbti su bendrais metodais, nesigilinant į konkrečias implementacijas. Tai padeda sumažinti programavimo sudėtingumą. 
@@ -82,8 +82,18 @@ Skirtingi žaidėjų tipai veikia nepriklausomai, bet laikosi bendros struktūro
 ## 4. Polimorfizmas 
 Polimorfizmas leidžia skirtingiems objektams naudoti tą patį metodą, bet įgyvendinti jį skirtingai. Metodas gali būti vykdoma skirtingai, priklausomai nuo konkrečios klasės realizacijos. 
 ```python
-current_player = self.get_current_player()
-position = current_player.make_move(self.board)
+class Player(ABC):
+    def __init__(self, name, symbol):
+        self._name = name
+        self._symbol = symbol
+    def make_move(self, board):
+        pass
+class HumanPlayer(Player):
+    def make_move(self, board):
+        
+class ComputerPlayer(Player):
+    def make_move(self, board):
+        
 ```
 `make_move` metodas kviečiamas vienodai, nepriklausomai nuo to, ar tai žmogus ar kompiuteris.
 Žaidimo logika paprastesnė, nes dirbama su bendru tipu `Player`.
