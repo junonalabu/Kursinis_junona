@@ -55,7 +55,7 @@ Kintamieji pažymėti _ yra laikomi „protected“. Protected (_) prieiga paded
  Jie yra apsaugoti nuo atsitiktinio pakeitimo.  
 
 ## 2. Abstrakcija (Abstraction)
-Abstrakcija yra į objekto orientuoto programavimo sąvoka, kuri parodo tik esminius atributus ir slepia nereikalingą informaciją. Ji leidžia išryškinti tik tai, kas yra svarbu naudotojui ir dirbti su bendrais metodais, nesigilinant į konkrečias implementacijas. Tai padeda sumažinti programavimo sudėtingumą. 
+Abstrakcija yra objektinio programavimo sąvoka, kuri parodo tik esminius atributus ir slepia nereikalingą informaciją. Ji leidžia išryškinti tik tai, kas yra svarbu naudotojui ir dirbti su bendrais metodais, nesigilinant į konkrečias implementacijas. Tai padeda sumažinti programavimo sudėtingumą. 
 ```python
 from abc import ABC, abstractmethod
 
@@ -130,8 +130,11 @@ Pagerina atminties naudojimą.
 ## Kompozicija
 Kompozicija - tai objektinio programavimo principas, kai viena klasė turi kitų klasių objektus kaip savo dalis, ir šie objektai negali egzistuoti be ją turinčios klasės.
 ```python
-self.board = Board()
-self.players = [player1, player2]
+class TicTacToeGame:
+    def __init__(self, player1, player2):
+        self.board = Board()
+        self.players = [player1, player2]
+        self.current_player_index = 0
 ```
 `TicTacToeGame` klasė kuria ir valdo `Board` objektą savo viduje. Tai reiškia, kad lenta egzistuoja tol, kol gyvas žaidimo objektas.
 
