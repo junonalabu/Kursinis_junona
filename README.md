@@ -90,10 +90,19 @@ class Player(ABC):
         pass
 class HumanPlayer(Player):
     def make_move(self, board):
+def make_move(self, board):
+        while True:
+            try:
+                move = input(f"{self._name}, enter your move (1-9): ")
+                position = int(move) - 1
+                if 0 <= position < 9 and board.is_position_empty(position):
+                    return position
+                print("Invalid move, try again!")
+            except ValueError:
+                print("Please enter a number between 1 and 9.")
         
 class ComputerPlayer(Player):
     def make_move(self, board):
-        
 ```
 `make_move` metodas kviečiamas vienodai, nepriklausomai nuo to, ar tai žmogus ar kompiuteris.
 Žaidimo logika paprastesnė, nes dirbama su bendru tipu `Player`.
