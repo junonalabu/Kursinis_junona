@@ -90,7 +90,6 @@ class Player(ABC):
         pass
 class HumanPlayer(Player):
     def make_move(self, board):
-def make_move(self, board):
         while True:
             try:
                 move = input(f"{self._name}, enter your move (1-9): ")
